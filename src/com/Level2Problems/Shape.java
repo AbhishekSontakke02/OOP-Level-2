@@ -1,27 +1,53 @@
 package com.Level2Problems;
 
+class AreaCalculator {
+    public double calculateArea(Rectangle rect) {
+        return rect.length * rect.breadth;
+    }
+
+    public double calculateArea(Triangle tri) {
+        return 0.5 * tri.base * tri.height;
+    }
+}
+
+class Rectangle {
+    double length;
+    double breadth;
+
+    // Constructor
+    Rectangle(double length, double breadth) {
+        this.length = length;
+        this.breadth = breadth;
+    }
+}
+
+class Triangle {
+    double base;
+    double height;
+
+    // Constructor
+    Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+}
+
 public class Shape {
-	double area;
-	private void area(double length , double breadth) {
-		this.area = length * breadth;
-	}
-	private void area(double base , double hight , boolean triangle) {
-		if(triangle) {
-			this.area = 0.5 * base * hight; 
-		}
-	}
 	
 	public static void main(String[] args) {
-		double side1 = 20;
-		double side2 = 30;
+		Rectangle rect = new Rectangle(4, 5);
 		
-		Shape obj = new Shape();
+		Triangle tri = new Triangle(4, 5);
 
-		obj.area(side1,side2);
-		System.out.println("The area of Reactangle is : "+obj.area);
+		AreaCalculator area = new AreaCalculator();
 
-		obj.area(side1,side2,true);
-		System.out.println("The area of Triangle is : "+obj.area);
-	
+	    double rectangleArea = area.calculateArea(rect);
+	    double triangleArea = area.calculateArea(tri);
+	    
+	    System.out.println("The area of the rectangle is: " + rectangleArea);
+        System.out.println("The area of the triangle is: " + triangleArea);
+
 	}
 }
+
+
